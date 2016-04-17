@@ -1,0 +1,62 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Holder</th>
+        <th></th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr ng-repeat="item in inventory.gear">
+        <td>
+          <button ng-hide="rowform.$visible" ng-click="rowform.$show()">Edit</button>
+          <form editable-form name="rowform" onaftersave="inventory.saveItem($index)">
+            <button ng-show="rowform.$visible" type="submit">Save</button>
+          </form>
+        </td>
+        <td class="name">
+          <span class="original" editable-text="item.name" buttons="no" e-required e-form="rowform">
+            {{item.name}}
+          </span>
+        </td>
+        <td class="money">
+          <span class="money" editable-text="item.price.number" buttons="no" e-form="rowform">                {{item.price.number}}
+          </span>
+          <span class="money" editable-text="item.price.unit" buttons="no" e-form="rowform">  {{item.price.unit}}
+          </span>
+        </td>
+        <td class="holder">
+          <span class="original" editable-select="item.owner" buttons="no" e-form="rowform" e-ng-options="s.value as s.text for s in inventory.holders">{{item.owner}}</span>
+        </td>
+        <td>
+          <button ng-click="inventory.delete($index)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+    <tr>
+      <td></td>
+      <td class="new-item"><input class="form-control" ng-model="inventory.newItem.name" placeholder="Name" type="text" required></td>
+      <td class="price_input new-item">
+        <input class="form-control" ng-model="inventory.newItem.price.number" placeholder="Price" type="text" required>
+        <input class="form-control" ng-model="inventory.newItem.price.unit" placeholder="Unit" type="text" required>
+      </td>
+      <td class="new-item">
+        <select class="form-control" ng-model="inventory.newItem.owner" placeholder="Owner" type="text" required>
+          <option value="Ruskin Sartorius">Ruskin</option>
+          <option value="Barok">Barok</option>
+          <option value="Macintyre">MacIntyre</option>
+          <option value="Alura">Alura</option>
+          <option value="Liza">Liza</option>
+        </select>
+      </td>
+      <td class="new-item">
+        <button ng-click="inventory.add()">Add Item</button>
+      </td>
+    </tr>
+  </table>
+
+
+</div>

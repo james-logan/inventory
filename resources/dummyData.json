@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Sword",
+    "price": {
+      "number": 12,
+      "unit" : "gold"
+    },
+    "owner": "Ruskin Sartorius"
+  },
+  {
+    "name": "Sword",
+    "price": {
+      "number": 12,
+      "unit" : "gold"
+    },
+    "owner": "Ruskin Sartorius"
+  },
+  {
+    "name": "Sword",
+    "price": {
+      "number": 12,
+      "unit" : "gold"
+    },
+    "owner": "Ruskin Sartorius"
+  },
+  {
+    "name": "Sword",
+    "price": {
+      "number": 12,
+      "unit" : "gold"
+    },
+    "owner": "Ruskin Sartorius"
+  },
+  {
+    "name": "Sword",
+    "price": {
+      "number": 12,
+      "unit" : "gold"
+    },
+    "owner": "Ruskin Sartorius"
+  }
+
+]
