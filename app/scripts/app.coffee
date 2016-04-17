@@ -25,6 +25,10 @@ angular
         templateUrl: 'views/inventory.html'
         controller: 'InventoryCtrl'
         controllerAs: 'inventory'
+      .when '/personal/:name',
+        templateUrl: 'views/personal.html'
+        controller: 'InventoryCtrl'
+        controllerAs: 'inventory'
       .otherwise
         redirectTo: '/'
   .run (editableOptions) ->

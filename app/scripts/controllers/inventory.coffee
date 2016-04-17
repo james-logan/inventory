@@ -8,11 +8,19 @@
  # Controller of the armoryApp
 ###
 angular.module 'armoryApp'
-  .controller 'InventoryCtrl', (firebaseServ) ->
+  .controller 'InventoryCtrl', (firebaseServ, $routeParams) ->
     new class InventoryCtrl
       constructor: ->
         # @retrieve()
         @retrieve()
+
+      personal: (thing, index, array)->
+        # console.log $routeParams.names
+        if $routeParams.name && $routeParams.name == thing.owner
+          console.log JSON.stringify thing
+          true
+        else
+          false
 
       retrieve: ->
         @gear = firebaseServ.retrieve()
@@ -25,12 +33,12 @@ angular.module 'armoryApp'
         @blank()
 
       saveItem: (index) ->
-        console.log 'saving tiem', index
+        console.log(index)
         @gear.$save(index)
 
       holders : [
         {
-          value:"Ruskin Sartorius",
+          value:"Ruskin",
           text: "Ruskin"
         },
         {
@@ -50,22 +58,3 @@ angular.module 'armoryApp'
           text: "Liza"
         }
       ]
-
-      blank: ->
-        @newItem =
-          {
-            name : null,
-            price : {
-              number : null,
-              unit : null
-            }
-            owner : null
-          }
-      newItem: {
-        name : null,
-        price : {
-          number : null,
-          unit : null
-        }
-        owner : null
-      }

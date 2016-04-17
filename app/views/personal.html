@@ -10,10 +10,10 @@
       </tr>
     <thead>
     <tbody>
-      <tr ng-repeat="item in inventory.gear">
+      <tr ng-repeat="item in inventory.gear | filter: inventory.personal">
         <td>
           <button ng-hide="rowform.$visible" ng-click="rowform.$show()">Edit</button>
-          <form editable-form name="rowform" onaftersave="inventory.saveItem($index)">
+          <form editable-form name="rowform" onaftersave="inventory.saveItem(item)">
             <button ng-show="rowform.$visible" type="submit">Save</button>
           </form>
         </td>
@@ -36,7 +36,7 @@
         </td>
       </tr>
     </tbody>
-    <tr>
+    <!-- <tr>
       <td></td>
       <td class="new-item"><input class="form-control" ng-model="inventory.newItem.name" placeholder="Name" type="text" required></td>
       <td class="price_input new-item">
@@ -45,7 +45,7 @@
       </td>
       <td class="new-item">
         <select class="form-control" ng-model="inventory.newItem.owner" placeholder="Owner" type="text" required>
-          <option value="Ruskin">Ruskin</option>
+          <option value="Ruskin Sartorius">Ruskin</option>
           <option value="Barok">Barok</option>
           <option value="Macintyre">MacIntyre</option>
           <option value="Alura">Alura</option>
@@ -55,7 +55,7 @@
       <td class="new-item">
         <button ng-click="inventory.add()">Add Item</button>
       </td>
-    </tr>
+    </tr> -->
   </table>
 
 
