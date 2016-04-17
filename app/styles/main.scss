@@ -63,11 +63,9 @@ td:not(:first-child):not(:last-child):not(.new-item) {
 tbody  {
   tr:first-child td:not(:first-child):not(:last-child) {
     border-top: 1px solid black !important;
-    // box-shadow: inset 0px 2px 2px black;
   }
   tr:last-child td:not(:first-child):not(:last-child) {
     border-bottom: 1px solid black !important;
-    // box-shadow: inset 0px -2px 2px black;
   }
 }
 
